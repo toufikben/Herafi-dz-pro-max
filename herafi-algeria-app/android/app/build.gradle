@@ -1,0 +1,56 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def hasGoogleServices = file("google-services.json").exists()
+if (hasGoogleServices) {
+    apply plugin: "com.google.gms.google-services"
+}
+
+android {
+    namespace = "com.herafi.algeria"
+    compileSdk = 34
+    ndkVersion = "25.1.8937393"
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    defaultConfig {
+        applicationId = "com.herafi.algeria"
+        minSdkVersion = flutter.minSdkVersion
+        targetSdk = 34
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+        multiDexEnabled = true
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+            minifyEnabled = false
+            shrinkResources = false
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.22"
+    if (hasGoogleServices) {
+        implementation platform("com.google.firebase:firebase-bom:33.5.1")
+        implementation "com.google.firebase:firebase-auth"
+        implementation "com.google.firebase:firebase-firestore"
+        implementation "com.google.firebase:firebase-messaging"
+    }
+}

@@ -1,0 +1,37 @@
+name: Build Admin APK & AAB
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5'
+          channel: stable
+          cache: true
+      - name: Bootstrap Android project
+        run: |
+          flutter create . --org com.herafi.algeria --project-name herafi_algeria_admin --platforms=android
+          # Restore our lib and pubspec if flutter create overwrote - we keep them in repo
+      - run: flutter pub get
+      - run: flutter build apk --release
+      - run: flutter build appbundle --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: herafi-admin-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: herafi-admin-aab
+          path: build/app/outputs/bundle/release/app-release.aab

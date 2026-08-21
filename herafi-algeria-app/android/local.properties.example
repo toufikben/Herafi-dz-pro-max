@@ -1,0 +1,6 @@
+## انسخ هذا الملف إلى local.properties وعدّل المسارات حسب جهازك
+sdk.dir=C:\\Users\\YOUR_USER\\AppData\\Local\\Android\\Sdk
+flutter.sdk=C:\\flutter
+flutter.buildMode=release
+flutter.versionName=1.0.0
+flutter.versionCode=1

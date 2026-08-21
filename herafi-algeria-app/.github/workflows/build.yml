@@ -1,0 +1,67 @@
+name: Build APK & AAB
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.5'
+          channel: 'stable'
+          cache: true
+
+      - name: Flutter doctor
+        run: flutter doctor -v
+
+      - name: Ensure Android platform files
+        run: |
+          # إذا كان مجلد android ناقصاً، أنشئه
+          if [ ! -f android/app/src/main/kotlin/com/herafi/algeria/MainActivity.kt ]; then
+            flutter create . --org com.herafi --project-name herafi_algeria
+          fi
+          # تأكد من وجود مجلدات الأصول
+          mkdir -p assets/images assets/icons
+          touch assets/images/.gitkeep assets/icons/.gitkeep
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Analyze (non-blocking)
+        run: flutter analyze --no-fatal-infos || true
+
+      - name: Build APK (release)
+        run: flutter build apk --release
+
+      - name: Build App Bundle (release)
+        run: flutter build appbundle --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: herafi-algeria-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4
+        with:
+          name: herafi-algeria-aab
+          path: build/app/outputs/bundle/release/app-release.aab
