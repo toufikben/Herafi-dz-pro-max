@@ -1,0 +1,75 @@
+{
+  "appTitle": "Herafi Algeria",
+  "welcome": "Welcome to Herafi Algeria",
+  "search": "Search for a craftsman or specialty...",
+  "categories": "Specialties",
+  "featuredCraftsmen": "Featured Craftsmen",
+  "viewAll": "View All",
+  "retry": "Retry",
+  "errorLoadingCraftsmen": "Could not load craftsmen. Check Firebase connection.",
+  "call": "Call",
+  "whatsapp": "WhatsApp",
+  "home": "Home",
+  "orders": "My Orders",
+  "myAccount": "My Account",
+  "settings": "Settings",
+  "selectWilayaFirst": "Please select a wilaya first",
+  "selectSpecialtyAtLeastOne": "Please select at least one specialty",
+  "loginFirst": "Please login first",
+  "editProfileSaved": "Profile updated successfully",
+  "profileSaveFailed": "Profile save failed: {error}",
+  "@profileSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "editProfile": "Edit Profile",
+  "completeProfile": "Complete Profile",
+  "editProfileHint": "You can edit your personal information here",
+  "fullName": "Full Name",
+  "nameRequired": "Name is required",
+  "wilaya": "Wilaya",
+  "commune": "Commune",
+  "specialties": "Specialties",
+  "bioOptional": "Bio (Optional)",
+  "priceNoteOptional": "Price Note (Optional)",
+  "priceNoteHint": "e.g., Price depends on work, or starts from 1000 DZD",
+  "yearsOfExperience": "Years of Experience",
+  "saveEdits": "Save Edits",
+  "saveAndContinue": "Save and Continue",
+  "selectWilaya": "Select Wilaya",
+  "selectAppointmentFirst": "Please select an appointment first",
+  "mustLoginFirst": "Must login first",
+  "sendOrderFailed": "Failed to send order: {error}",
+  "@sendOrderFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "orderSentSuccessfully": "Order sent successfully",
+  "craftsmanWillBeNotified": "Craftsman {name} will be notified of your request",
+  "@craftsmanWillBeNotified": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ok": "OK",
+  "orderService": "Request Service",
+  "problemDescription": "Problem Description",
+  "problemDescriptionHint": "Explain exactly what you need...",
+  "descriptionTooShort": "Description is too short",
+  "location": "Location",
+  "detailedAddressOptional": "Detailed Address (Optional)",
+  "serviceTime": "Service Time",
+  "immediate": "Immediate",
+  "laterAppointment": "Later Appointment",
+  "selectDate": "Select Date",
+  "selectTime": "Select Time",
+  "sendOrder": "Send Order"
+}

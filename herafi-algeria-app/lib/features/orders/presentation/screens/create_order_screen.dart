@@ -5,7 +5,7 @@ import '../../../../core/widgets/app_button.dart';
 import '../../../../core/data/algeria_locations.dart';
 import '../../../../services/auth_service.dart';
 import '../../../../services/order_service.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../../../services/current_user_provider.dart';
 

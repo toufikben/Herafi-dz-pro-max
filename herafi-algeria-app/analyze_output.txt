@@ -1,0 +1,157 @@
+Resolving dependencies...
+Downloading packages...
+  _flutterfire_internals 1.3.16 (1.3.76 available)
+  cloud_firestore 4.13.6 (6.8.0 available)
+  cloud_firestore_platform_interface 6.1.0 (8.0.6 available)
+  cloud_firestore_web 3.9.0 (5.7.2 available)
+  cross_file 0.3.3+8 (0.3.5+4 available)
+  equatable 2.0.5 (2.1.0 available)
+  firebase_auth 4.15.3 (6.5.7 available)
+  firebase_auth_platform_interface 7.0.9 (9.0.6 available)
+  firebase_auth_web 5.8.13 (6.2.6 available)
+  firebase_core 2.24.2 (4.13.0 available)
+  firebase_core_platform_interface 5.4.2 (8.1.0 available)
+  firebase_core_web 2.11.5 (3.10.0 available)
+  firebase_messaging 14.7.10 (16.5.0 available)
+  firebase_messaging_platform_interface 4.5.18 (4.9.3 available)
+  firebase_messaging_web 3.5.18 (4.2.4 available)
+  firebase_storage 11.5.6 (13.4.6 available)
+  firebase_storage_platform_interface 5.1.3 (6.0.6 available)
+  firebase_storage_web 3.6.17 (3.11.12 available)
+  flutter_lints 3.0.0 (6.0.0 available)
+  flutter_riverpod 2.4.9 (3.4.2 available)
+  google_fonts 6.1.0 (8.2.1 available)
+  http 1.1.2 (1.6.0 available)
+  image_picker 1.0.7 (1.2.3 available)
+  image_picker_for_web 3.0.2 (3.1.1 available)
+  js 0.6.7 (0.7.2 available)
+  lints 3.0.0 (6.1.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  mime 1.0.6 (2.0.0 available)
+  pinput 4.0.0 (6.0.2 available)
+  riverpod 2.4.9 (3.4.2 available)
+  shared_preferences 2.2.2 (2.5.5 available)
+  shared_preferences_web 2.2.2 (2.4.3 available)
+  smart_auth 2.0.0 (3.2.0 available)
+  test_api 0.7.12 (0.7.13 available)
+  url_launcher 6.2.2 (6.3.2 available)
+  url_launcher_web 2.2.3 (2.4.3 available)
+  web 0.4.2 (1.1.1 available)
+Got dependencies!
+37 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing herafi-algeria-app...                                 
+
+   info • Dangling library doc comment. Add a 'library' directive after the library comment • lib/core/data/algeria_locations.dart:1:1 • dangling_library_doc_comments
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/core/theme/app_theme.dart:13:20 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/core/theme/app_theme.dart:135:20 • prefer_const_constructors
+warning • The operand can't be 'null', so the condition is always 'false'. Try removing the condition, an enclosing condition, or the whole conditional statement • lib/core/widgets/craftsman_card.dart:19:20 • unnecessary_null_comparison
+warning • The operand can't be 'null', so the condition is always 'false'. Try removing the condition, an enclosing condition, or the whole conditional statement • lib/core/widgets/craftsman_card.dart:27:20 • unnecessary_null_comparison
+warning • The '!' will have no effect because the receiver can't be null. Try removing the '!' operator • lib/core/widgets/craftsman_card.dart:28:35 • unnecessary_non_null_assertion
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/core/widgets/craftsman_card.dart:53:40 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/core/widgets/craftsman_card.dart:58:42 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/core/widgets/craftsman_card.dart:98:60 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/core/widgets/craftsman_card.dart:104:58 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/core/widgets/craftsman_card.dart:171:45 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/core/widgets/craftsman_card.dart:173:64 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/core/widgets/craftsman_card.dart:278:26 • deprecated_member_use
+  error • Target of URI doesn't exist: 'package:flutter_gen/gen_l10n/app_localizations.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist • lib/features/auth/presentation/screens/complete_profile_screen.dart:9:8 • uri_does_not_exist
+  error • Target of URI doesn't exist: '../../../profile/presentation/widgets/work_photos_section.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist • lib/features/auth/presentation/screens/complete_profile_screen.dart:13:8 • uri_does_not_exist
+  error • Undefined name 'AppLocalizations'. Try correcting the name to one that is defined, or defining the name • lib/features/auth/presentation/screens/complete_profile_screen.dart:82:18 • undefined_identifier
+  error • Undefined name 'AppLocalizations'. Try correcting the name to one that is defined, or defining the name • lib/features/auth/presentation/screens/complete_profile_screen.dart:176:18 • undefined_identifier
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/auth/presentation/screens/complete_profile_screen.dart:208:28 • prefer_const_constructors
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/complete_profile_screen.dart:223:17 • deprecated_member_use
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/complete_profile_screen.dart:238:17 • deprecated_member_use
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/complete_profile_screen.dart:285:19 • deprecated_member_use
+  error • The method 'WorkPhotosSection' isn't defined for the type '_CompleteProfileScreenState'. Try correcting the name to the name of an existing method, or defining a method named 'WorkPhotosSection' • lib/features/auth/presentation/screens/complete_profile_screen.dart:299:17 • undefined_method
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/features/auth/presentation/screens/otp_screen.dart:75:22 • use_build_context_synchronously
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/features/auth/presentation/screens/otp_screen.dart:79:22 • use_build_context_synchronously
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/features/auth/presentation/screens/otp_screen.dart:130:28 • use_build_context_synchronously
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/phone_auth_screen.dart:145:52 • deprecated_member_use
+warning • Unused import: '../../../home/presentation/screens/main_shell.dart'. Try removing the import directive • lib/features/auth/presentation/screens/role_selection_screen.dart:5:8 • unused_import
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/auth/presentation/screens/role_selection_screen.dart:26:27 • prefer_const_constructors
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/role_selection_screen.dart:191:35 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/role_selection_screen.dart:207:41 • deprecated_member_use
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/features/auth/presentation/screens/splash_screen.dart:55:26 • use_build_context_synchronously
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/features/auth/presentation/screens/splash_screen.dart:59:26 • use_build_context_synchronously
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/splash_screen.dart:112:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/splash_screen.dart:115:43 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/splash_screen.dart:141:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/auth/presentation/screens/splash_screen.dart:151:36 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/craftsman/presentation/screens/craftsman_detail_screen.dart:76:55 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/craftsman/presentation/screens/craftsman_detail_screen.dart:98:47 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/craftsman/presentation/screens/craftsman_detail_screen.dart:124:52 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/craftsman/presentation/screens/craftsman_detail_screen.dart:200:57 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/craftsman/presentation/screens/craftsman_detail_screen.dart:308:38 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/craftsman/presentation/screens/craftsman_detail_screen.dart:319:22 • prefer_const_constructors
+warning • The value of the field '_error' isn't used. Try removing the field, or using it • lib/features/home/presentation/screens/home_screen.dart:21:11 • unused_field
+   info • Unnecessary use of double quotes. Try using single quotes unless the string contains single quotes • lib/features/home/presentation/screens/home_screen.dart:47:18 • prefer_single_quotes
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/home/presentation/screens/home_screen.dart:81:43 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/home/presentation/screens/home_screen.dart:103:60 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/home/presentation/screens/home_screen.dart:106:45 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/home/presentation/screens/home_screen.dart:119:47 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/home/presentation/screens/home_screen.dart:172:64 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/home/presentation/screens/home_screen.dart:177:66 • deprecated_member_use
+  error • The argument type 'String' can't be assigned to the parameter type 'IconData?'.  • lib/features/home/presentation/screens/home_screen.dart:184:35 • argument_type_not_assignable
+warning • Unused import: '../../../../models/user_model.dart'. Try removing the import directive • lib/features/home/presentation/screens/main_shell.dart:4:8 • unused_import
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/home/presentation/screens/main_shell.dart:55:35 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/home/presentation/screens/main_shell.dart:106:35 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:34:20 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:35:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:37:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:40:26 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:47:20 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:48:22 • prefer_const_constructors
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:50:27 • prefer_const_literals_to_create_immutables
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:51:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:54:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:55:30 • prefer_const_constructors
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:134:39 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:149:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:159:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/craftsman_orders_screen.dart:163:24 • prefer_const_constructors
+  error • Target of URI doesn't exist: 'package:flutter_gen/gen_l10n/app_localizations.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist • lib/features/orders/presentation/screens/create_order_screen.dart:8:8 • uri_does_not_exist
+  error • Undefined name 'AppLocalizations'. Try correcting the name to one that is defined, or defining the name • lib/features/orders/presentation/screens/create_order_screen.dart:71:18 • undefined_identifier
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/orders/presentation/screens/create_order_screen.dart:157:42 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/create_order_screen.dart:173:22 • prefer_const_constructors
+  error • Undefined name 'AppLocalizations'. Try correcting the name to one that is defined, or defining the name • lib/features/orders/presentation/screens/create_order_screen.dart:199:18 • undefined_identifier
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/orders/presentation/screens/create_order_screen.dart:210:42 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/create_order_screen.dart:215:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/create_order_screen.dart:230:34 • prefer_const_constructors
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement • lib/features/orders/presentation/screens/create_order_screen.dart:261:15 • deprecated_member_use
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre. Try replacing the use of the deprecated member with the replacement • lib/features/orders/presentation/screens/create_order_screen.dart:276:15 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/create_order_screen.dart:277:27 • prefer_const_constructors
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/orders/presentation/screens/create_order_screen.dart:388:35 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:27:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:51:34 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:52:36 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:54:38 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:57:40 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:107:14 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:108:16 • prefer_const_constructors
+   info • Use 'const' literals as arguments to constructors of '@immutable' classes. Try adding 'const' before the literal • lib/features/orders/presentation/screens/orders_screen.dart:110:21 • prefer_const_literals_to_create_immutables
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:111:13 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:114:13 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:116:21 • prefer_const_constructors
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/orders/presentation/screens/orders_screen.dart:147:47 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/orders/presentation/screens/orders_screen.dart:148:44 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:165:28 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/screens/orders_screen.dart:176:26 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/widgets/rating_dialog.dart:54:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/orders/presentation/widgets/rating_dialog.dart:73:22 • prefer_const_constructors
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/profile/presentation/screens/profile_screen.dart:82:55 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/profile/presentation/screens/profile_screen.dart:104:47 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/profile/presentation/screens/profile_screen.dart:249:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/profile/presentation/screens/profile_screen.dart:271:28 • prefer_const_constructors
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/search/presentation/screens/search_screen.dart:104:62 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/search/presentation/screens/search_screen.dart:110:66 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/search/presentation/screens/search_screen.dart:114:66 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/search/presentation/screens/search_screen.dart:190:50 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/search/presentation/screens/search_screen.dart:216:72 • deprecated_member_use
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/presentation/screens/settings_screen.dart:24:11 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/presentation/screens/settings_screen.dart:51:11 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/presentation/screens/settings_screen.dart:75:11 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance. Try adding the 'const' keyword to the constructor invocation • lib/features/settings/presentation/screens/settings_screen.dart:101:11 • prefer_const_constructors
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/features/settings/presentation/screens/settings_screen.dart:301:51 • deprecated_member_use
+
+111 issues found. (ran in 0.5s)

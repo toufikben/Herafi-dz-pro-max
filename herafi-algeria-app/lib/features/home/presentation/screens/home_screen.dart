@@ -49,6 +49,46 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
   }
 
+  IconData _getIconData(String iconName) {
+    switch (iconName) {
+      case 'construction': return Icons.construction;
+      case 'grid_view': return Icons.grid_view;
+      case 'format_paint': return Icons.format_paint;
+      case 'layers': return Icons.layers;
+      case 'build': return Icons.build;
+      case 'window': return Icons.window;
+      case 'carpenter': return Icons.carpenter;
+      case 'branding_watermark': return Icons.branding_watermark;
+      case 'waves': return Icons.waves;
+      case 'bolt': return Icons.bolt;
+      case 'water_drop': return Icons.water_drop;
+      case 'hot_tub': return Icons.hot_tub;
+      case 'ac_unit': return Icons.ac_unit;
+      case 'wb_sunny': return Icons.wb_sunny;
+      case 'smartphone': return Icons.smartphone;
+      case 'computer': return Icons.computer;
+      case 'home_repair_service': return Icons.home_repair_service;
+      case 'videocam': return Icons.videocam;
+      case 'settings_input_antenna': return Icons.settings_input_antenna;
+      case 'car_repair': return Icons.car_repair;
+      case 'flash_on': return Icons.flash_on;
+      case 'tire_repair': return Icons.tire_repair;
+      case 'local_shipping': return Icons.local_shipping;
+      case 'moving': return Icons.moving;
+      case 'cleaning_services': return Icons.cleaning_services;
+      case 'yard': return Icons.yard;
+      case 'bug_report': return Icons.bug_report;
+      case 'content_cut': return Icons.content_cut;
+      case 'face': return Icons.face;
+      case 'chair': return Icons.chair;
+      case 'restaurant': return Icons.restaurant;
+      case 'delivery_dining': return Icons.delivery_dining;
+      case 'camera_alt': return Icons.camera_alt;
+      case 'more_horiz': return Icons.more_horiz;
+      default: return Icons.handyman;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -181,7 +221,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   ],
                                 ),
                                 child: Icon(
-                                  cat.icon,
+                                  _getIconData(cat.icon),
                                   color: AppColors.secondary,
                                   size: 30,
                                 ),

@@ -6,7 +6,7 @@ import '../../../../core/data/algeria_locations.dart';
 import '../../../../core/constants/categories.dart';
 import '../../../../models/user_model.dart';
 import '../../../../services/auth_service.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../../../l10n/app_localizations.dart';
 
 import '../../../../services/current_user_provider.dart';
 import '../../../home/presentation/screens/main_shell.dart';
@@ -220,7 +220,7 @@ class _CompleteProfileScreenState extends ConsumerState<CompleteProfileScreen> {
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<String>(
-                value: _selectedWilaya,
+                initialValue: _selectedWilaya,
                 decoration: InputDecoration(
                   labelText: l10n.wilaya,
                   prefixIcon: const Icon(Icons.location_city_rounded),
@@ -235,7 +235,7 @@ class _CompleteProfileScreenState extends ConsumerState<CompleteProfileScreen> {
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<String>(
-                value: _selectedCommune,
+                initialValue: _selectedCommune,
                 decoration: InputDecoration(
                   labelText: l10n.commune,
                   prefixIcon: const Icon(Icons.location_on_outlined),
@@ -282,7 +282,7 @@ class _CompleteProfileScreenState extends ConsumerState<CompleteProfileScreen> {
                 ),
                 const SizedBox(height: 16),
                 DropdownButtonFormField<int>(
-                  value: _yearsExperience,
+                  initialValue: _yearsExperience,
                   decoration: InputDecoration(
                     labelText: l10n.yearsOfExperience,
                     prefixIcon: const Icon(Icons.work_history_outlined),

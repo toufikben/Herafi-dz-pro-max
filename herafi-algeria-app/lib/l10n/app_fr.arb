@@ -1,0 +1,75 @@
+{
+  "appTitle": "Herafi Algérie",
+  "welcome": "Bienvenue sur Herafi Algérie",
+  "search": "Rechercher un artisan ou une spécialité...",
+  "categories": "Spécialités",
+  "featuredCraftsmen": "Artisans en vedette",
+  "viewAll": "Voir tout",
+  "retry": "Réessayer",
+  "errorLoadingCraftsmen": "Impossible de charger les artisans. Vérifiez la connexion Firebase.",
+  "call": "Appeler",
+  "whatsapp": "WhatsApp",
+  "home": "Accueil",
+  "orders": "Mes commandes",
+  "myAccount": "Mon compte",
+  "settings": "Paramètres",
+  "selectWilayaFirst": "Veuillez d'abord sélectionner une wilaya",
+  "selectSpecialtyAtLeastOne": "Veuillez sélectionner au moins une spécialité",
+  "loginFirst": "Veuillez vous connecter d'abord",
+  "editProfileSaved": "Profil mis à jour avec succès",
+  "profileSaveFailed": "Échec de l'enregistrement du profil: {error}",
+  "@profileSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "editProfile": "Modifier le profil",
+  "completeProfile": "Compléter le profil",
+  "editProfileHint": "Vous pouvez modifier vos informations personnelles ici",
+  "fullName": "Nom complet",
+  "nameRequired": "Le nom est requis",
+  "wilaya": "Wilaya",
+  "commune": "Commune",
+  "specialties": "Spécialités",
+  "bioOptional": "Bio (Optionnel)",
+  "priceNoteOptional": "Note sur le prix (Optionnel)",
+  "priceNoteHint": "ex: Le prix dépend du travail, ou commence à partir de 1000 DZD",
+  "yearsOfExperience": "Années d'expérience",
+  "saveEdits": "Enregistrer les modifications",
+  "saveAndContinue": "Enregistrer et continuer",
+  "selectWilaya": "Sélectionner la wilaya",
+  "selectAppointmentFirst": "Veuillez d'abord sélectionner un rendez-vous",
+  "mustLoginFirst": "Vous devez d'abord vous connecter",
+  "sendOrderFailed": "Échec de l'envoi de la commande: {error}",
+  "@sendOrderFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "orderSentSuccessfully": "Commande envoyée avec succès",
+  "craftsmanWillBeNotified": "L'artisan {name} sera informé de votre demande",
+  "@craftsmanWillBeNotified": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ok": "OK",
+  "orderService": "Demander un service",
+  "problemDescription": "Description du problème",
+  "problemDescriptionHint": "Expliquez exactement ce dont vous avez besoin...",
+  "descriptionTooShort": "La description est trop courte",
+  "location": "Localisation",
+  "detailedAddressOptional": "Adresse détaillée (Optionnel)",
+  "serviceTime": "Temps de service",
+  "immediate": "Immédiat",
+  "laterAppointment": "Rendez-vous ultérieur",
+  "selectDate": "Choisir la date",
+  "selectTime": "Choisir l'heure",
+  "sendOrder": "Envoyer la commande"
+}

@@ -1,0 +1,75 @@
+{
+  "appTitle": "حرفي الجزائر",
+  "welcome": "مرحباً بك في حرفي الجزائر",
+  "search": "ابحث عن حرفي أو تخصص...",
+  "categories": "التخصصات",
+  "featuredCraftsmen": "حرفيون مميزون",
+  "viewAll": "عرض الكل",
+  "retry": "إعادة المحاولة",
+  "errorLoadingCraftsmen": "تعذر تحميل الحرفيين. تحقق من الاتصال بـ Firebase.",
+  "call": "اتصال",
+  "whatsapp": "واتساب",
+  "home": "الرئيسية",
+  "orders": "طلباتي",
+  "myAccount": "حسابي",
+  "settings": "الإعدادات",
+  "selectWilayaFirst": "يرجى اختيار الولاية أولاً",
+  "selectSpecialtyAtLeastOne": "يرجى اختيار تخصص واحد على الأقل",
+  "loginFirst": "يرجى تسجيل الدخول أولاً",
+  "editProfileSaved": "تم حفظ التعديلات بنجاح",
+  "profileSaveFailed": "فشل حفظ الملف الشخصي: {error}",
+  "@profileSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "editProfile": "تعديل الملف الشخصي",
+  "completeProfile": "إكمال الملف الشخصي",
+  "editProfileHint": "يمكنك تعديل معلوماتك الشخصية هنا",
+  "fullName": "الاسم الكامل",
+  "nameRequired": "الاسم مطلوب",
+  "wilaya": "الولاية",
+  "commune": "البلدية",
+  "specialties": "التخصصات",
+  "bioOptional": "نبذة شخصية (اختياري)",
+  "priceNoteOptional": "ملاحظة حول السعر (اختياري)",
+  "priceNoteHint": "مثال: السعر حسب العمل، أو يبدأ من 1000 دج",
+  "yearsOfExperience": "سنوات الخبرة",
+  "saveEdits": "حفظ التعديلات",
+  "saveAndContinue": "حفظ ومتابعة",
+  "selectWilaya": "اختر الولاية",
+  "selectAppointmentFirst": "يرجى اختيار الموعد أولاً",
+  "mustLoginFirst": "يجب تسجيل الدخول أولاً",
+  "sendOrderFailed": "فشل إرسال الطلب: {error}",
+  "@sendOrderFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "orderSentSuccessfully": "تم إرسال الطلب بنجاح",
+  "craftsmanWillBeNotified": "سيتم إشعار الحرفي {name} بطلبك",
+  "@craftsmanWillBeNotified": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ok": "حسناً",
+  "orderService": "طلب خدمة",
+  "problemDescription": "وصف المشكلة",
+  "problemDescriptionHint": "اشرح ما الذي تحتاجه بالضبط...",
+  "descriptionTooShort": "الوصف قصير جداً",
+  "location": "الموقع",
+  "detailedAddressOptional": "العنوان بالتفصيل (اختياري)",
+  "serviceTime": "وقت الخدمة",
+  "immediate": "فوري",
+  "laterAppointment": "موعد لاحق",
+  "selectDate": "اختر التاريخ",
+  "selectTime": "اختر الوقت",
+  "sendOrder": "إرسال الطلب"
+}

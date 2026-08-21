@@ -1,0 +1,45 @@
+Running Gradle task 'assembleRelease'...                        
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:mergeReleaseNativeLibs'.
+> Configuration `:app:releaseRuntimeClasspath` contains AndroidX dependencies, but the `android.useAndroidX` property is not enabled, which may cause runtime issues.
+  Set `android.useAndroidX=true` in the `gradle.properties` file and retry.
+  The following AndroidX dependencies are detected:
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.browser:browser:1.4.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.collection:collection:1.1.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-firestore:25.1.1 -> androidx.annotation:annotation:1.5.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-bom:33.5.1 -> com.google.firebase:firebase-common:21.0.0 -> androidx.concurrent:concurrent-futures:1.1.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.browser:browser:1.4.0 -> androidx.interpolator:interpolator:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.browser:browser:1.4.0 -> androidx.core:core:1.2.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.activity:activity:1.0.0 -> androidx.lifecycle:lifecycle-runtime:2.1.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.activity:activity:1.0.0 -> androidx.lifecycle:lifecycle-runtime:2.1.0 -> androidx.lifecycle:lifecycle-common:2.1.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.activity:activity:1.0.0 -> androidx.lifecycle:lifecycle-runtime:2.1.0 -> androidx.arch.core:core-common:2.1.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.browser:browser:1.4.0 -> androidx.core:core:1.2.0 -> androidx.versionedparcelable:versionedparcelable:1.1.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.credentials:credentials:1.2.0-rc01
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.viewpager:viewpager:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.viewpager:viewpager:1.0.0 -> androidx.customview:customview:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.loader:loader:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.loader:loader:1.0.0 -> androidx.lifecycle:lifecycle-livedata:2.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.loader:loader:1.0.0 -> androidx.lifecycle:lifecycle-livedata:2.0.0 -> androidx.arch.core:core-runtime:2.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.loader:loader:1.0.0 -> androidx.lifecycle:lifecycle-livedata:2.0.0 -> androidx.lifecycle:lifecycle-livedata-core:2.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.lifecycle:lifecycle-viewmodel:2.1.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.activity:activity:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.fragment:fragment:1.1.0 -> androidx.activity:activity:1.0.0 -> androidx.savedstate:savedstate:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.credentials:credentials-play-services-auth:1.2.0-rc01
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-auth:23.1.0 -> androidx.localbroadcastmanager:localbroadcastmanager:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-messaging:24.0.3 -> com.google.android.gms:play-services-stats:17.0.2 -> androidx.legacy:legacy-support-core-utils:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-messaging:24.0.3 -> com.google.android.gms:play-services-stats:17.0.2 -> androidx.legacy:legacy-support-core-utils:1.0.0 -> androidx.documentfile:documentfile:1.0.0
+  :app:releaseRuntimeClasspath -> com.google.firebase:firebase-messaging:24.0.3 -> com.google.android.gms:play-services-stats:17.0.2 -> androidx.legacy:legacy-support-core-utils:1.0.0 -> androidx.print:print:1.0.0
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 6s
+Running Gradle task 'assembleRelease'...                            7.0s
+Gradle task assembleRelease failed with exit code 1

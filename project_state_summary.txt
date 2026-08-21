@@ -1,0 +1,47 @@
+# Herafi Algeria Project State Summary - Aug 21, 2026
+
+## Firebase Configuration
+- Project ID: herafi-algeria
+- Project Number: 16674347103
+- App ID (Customer): 1:16674347103:android:820ce3fd256d096160a3ea
+- App ID (Admin): 1:16674347103:android:c1d78dc11074143e60a3ea
+- API Key: AIzaSyDOncaX8vttH72GcuhRj1N_yRmngatgN60
+- Storage Bucket: herafi-algeria.firebasestorage.app
+- Service Account: firebase-adminsdk-fbsvc@herafi-algeria.iam.gserviceaccount.com
+
+## Current Build Environment
+- Flutter SDK: /home/ubuntu/flutter/bin/
+- Java Home: /usr/lib/jvm/java-21-openjdk-amd64 (Java 21)
+- Android SDK: /home/ubuntu/android-sdk
+- AGP: 8.9.1
+- Gradle Wrapper: 8.11.1
+- Kotlin: 1.9.22
+- Compile/Target SDK: 36
+- Java Compatibility: VERSION_17
+
+## Recent Changes
+- Updated `craftsman_detail_screen.dart` to include `photoUrl`, `experienceYears`, and `workPhotos`.
+- Fixed `build.gradle` and `settings.gradle` for Java 17 and AGP 8.9.1 compatibility.
+- Added `intl` package and ran `gen-l10n`.
+- Fixed `AndroidManifest.xml` to include INTERNET permission.
+- Updated `pubspec.yaml` SDK constraint to `sdk: ">=3.1.0 <4.0.0"`.
+
+## Known Issues
+- Build failing with `Target kernel_snapshot_program failed: Exception`.
+- Some files are missing `import 'package:flutter_gen/gen_l10n/app_localizations.dart';`.
+- `WorkPhotosSection` is undefined in `complete_profile_screen.dart`.
+- `google_fonts` 6.1.0 causing constant evaluation errors with Java 21/Flutter 3.47.1.
+
+## Build Commands
+```bash
+export PATH="/home/ubuntu/flutter/bin:$PATH"
+export ANDROID_HOME=$HOME/android-sdk
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
+
+cd /home/ubuntu/herafi/herafi-algeria-app
+flutter build apk --release --no-tree-shake-icons \
+  --android-skip-build-dependency-validation \
+  --dart-define=FCM_RELAY_BASE_URL=https://herafi-fcm-relay.onrender.com \
+  --dart-define=FCM_RELAY_SECRET=uk6dzV1DUOf6OpgRnWOQcKmS45SwD5hIIMf577Av0
+```

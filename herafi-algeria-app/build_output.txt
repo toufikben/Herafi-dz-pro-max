@@ -1,0 +1,147 @@
+Resolving dependencies...
+Downloading packages...
+  _flutterfire_internals 1.3.16 (1.3.76 available)
+  cloud_firestore 4.13.6 (6.8.0 available)
+  cloud_firestore_platform_interface 6.1.0 (8.0.6 available)
+  cloud_firestore_web 3.9.0 (5.7.2 available)
+  cross_file 0.3.3+8 (0.3.5+4 available)
+  equatable 2.0.5 (2.1.0 available)
+  firebase_auth 4.15.3 (6.5.7 available)
+  firebase_auth_platform_interface 7.0.9 (9.0.6 available)
+  firebase_auth_web 5.8.13 (6.2.6 available)
+  firebase_core 2.24.2 (4.13.0 available)
+  firebase_core_platform_interface 5.4.2 (8.1.0 available)
+  firebase_core_web 2.11.5 (3.10.0 available)
+  firebase_messaging 14.7.10 (16.5.0 available)
+  firebase_messaging_platform_interface 4.5.18 (4.9.3 available)
+  firebase_messaging_web 3.5.18 (4.2.4 available)
+  firebase_storage 11.5.6 (13.4.6 available)
+  firebase_storage_platform_interface 5.1.3 (6.0.6 available)
+  firebase_storage_web 3.6.17 (3.11.12 available)
+  flutter_lints 3.0.0 (6.0.0 available)
+  flutter_riverpod 2.4.9 (3.4.2 available)
+  google_fonts 6.1.0 (8.2.1 available)
+  http 1.1.2 (1.6.0 available)
+  image_picker 1.0.7 (1.2.3 available)
+  image_picker_for_web 3.0.2 (3.1.1 available)
+  js 0.6.7 (0.7.2 available)
+  lints 3.0.0 (6.1.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  mime 1.0.6 (2.0.0 available)
+  pinput 4.0.0 (6.0.2 available)
+  riverpod 2.4.9 (3.4.2 available)
+  shared_preferences 2.2.2 (2.5.5 available)
+  shared_preferences_web 2.2.2 (2.4.3 available)
+  smart_auth 2.0.0 (3.2.0 available)
+  test_api 0.7.12 (0.7.13 available)
+  url_launcher 6.2.2 (6.3.2 available)
+  url_launcher_web 2.2.3 (2.4.3 available)
+  web 0.4.2 (1.1.1 available)
+Got dependencies!
+37 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleRelease'...                        
+ERROR: FormatException: Could not find an option named "--no-source-maps".
+
+Usage: server [options] [input.dart]
+
+If filename or uri pointing to the entrypoint is provided on the command line,
+then the server compiles it, generates dill file and exits.
+If no entrypoint is provided on the command line, server waits for
+instructions from stdin.
+
+Instructions:
+- compile <input.dart>
+- recompile [<input.dart>] <boundary-key>
+<invalidated file uri>
+<invalidated file uri>
+...
+<boundary-key>
+- accept
+- quit
+
+Output:
+- result <boundary-key>
+<compiler output>
+<boundary-key> [<output.dill>]
+
+Options:
+    --train                                    Run through sample command line to produce snapshot
+    --[no-]incremental                         Run compiler in incremental mode
+    --sdk-root                                 Path to sdk root
+                                               (defaults to "../../out/android_debug/flutter_patched_sdk")
+    --platform                                 Platform kernel filename
+    --[no-]aot                                 Run compiler in AOT mode (enables whole-program transformations)
+    --target-os                                Compile to a specific target operating system.
+                                               [android, fuchsia, ios, linux, macos, windows]
+    --[no-]support-mirrors                     Whether dart:mirrors is supported. By default dart:mirrors is supported when --aot and --minimal-kernel are not used.
+    --[no-]tfa                                 Enable global type flow analysis and related transformations in AOT mode.
+    --[no-]rta                                 Use rapid type analysis for faster compilation in AOT mode.
+                                               (defaults to on)
+    --[no-]tree-shake-write-only-fields        Enable tree shaking of fields which are only written in AOT mode.
+                                               (defaults to on)
+    --[no-]protobuf-tree-shaker-v2             Enable protobuf tree shaker v2 in AOT mode.
+    --[no-]protobuf-tree-shaker-mixins         Include protobuf messages with mixins in the tree shaker pass.
+    --[no-]minimal-kernel                      Produce minimal tree-shaken kernel file.
+    --[no-]link-platform                       When in batch mode, link platform kernel file into result kernel file. Intended use is to satisfy different loading strategies implemented by gen_snapshot (which needs platform embedded) vs Flutter engine (which does not)
+                                               (defaults to on)
+    --import-dill                              Import libraries from existing dill file
+    --from-dill                                Read existing dill file instead of compiling from sources
+    --output-dill                              Output path for the generated dill
+    --output-incremental-dill                  Output path for the generated incremental dill
+    --depfile                                  Path to output Ninja depfile. Only used in batch mode.
+    --packages                                 .dart_tool/package_config.json file to use for compilation
+    --source                                   List additional source files to include into compilation.
+    --native-assets                            Provide the native-assets mapping for @Native external functions.
+    --recorded-uses                            Write the recorded uses to <file name>.
+    --[no-]native-assets-only                  Only compile the native-assets mapping. Don't compile the dart program.
+    --target                                   Target model that determines what core libraries are available
+                                               [vm (default), flutter, flutter_runner, dart_runner, dartdevc]
+    --[no-]verbose                             Enables verbose output from the compiler.
+-D, --define                                   The values for the environment constants (e.g. -Dkey=value).
+    --[no-]embed-source-text                   Includes sources into generated dill file. Having sources allows to effectively use observatory to debug produced application, produces better stack traces on exceptions.
+                                               (defaults to on)
+    --[no-]track-creation-locations            Run a kernel transformer to track creation locations for classes annotated with @pragma('track-creation-locations').
+    --delete-tostring-package-uri=<dart:ui>    Replaces implementations of `toString` with `super.toString()` for specified package
+    --keep-class-names-implementing            Prevents obfuscation of the class names of any class implementing the given class.
+    --[no-]enable-asserts                      Whether asserts will be enabled.
+    --dynamic-interface                        Path to dynamic module interface yaml file.
+    --dump-detailed-dynamic-interface          Path to output detailed dynamic interface.
+    --[no-]split-output-by-packages            Split resulting kernel file into multiple files (one per package).
+    --component-name                           Name of the Fuchsia component
+    --data-dir                                 Name of the subdirectory of //data for output files
+    --far-manifest                             Path to output Fuchsia package manifest
+    --libraries-spec                           A path or uri to the libraries specification JSON file
+    --[no-]debugger-module-names               Use debugger-friendly modules names that assume the 'lib/' directories of packages are present in the served directory structure at runtime.
+    --[no-]experimental-emit-debug-metadata    Emit module and library metadata for the debugger
+    --[no-]emit-debug-symbols                  Emit debug symbols for the debugger
+    --dartdevc-module-format                   The module format to use on for the dartdevc compiler
+                                               (defaults to "amd")
+    --[no-]dartdevc-canary                     Enable canary features in dartdevc compiler
+    --[no-]print-incremental-dependencies      Print list of sources added and removed from compilation
+                                               (defaults to on)
+    --verbosity                                Sets the verbosity level of the compilation
+
+          [error]                              Show only error messages
+          [warning]                            Show only error and warning messages
+          [info]                               Show error, warning, and info messages
+          [all] (default)                      Show all messages
+
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildRelease'.
+> Process 'command '/home/ubuntu/flutter/bin/flutter'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 6s
+Running Gradle task 'assembleRelease'...                            7.2s
+Gradle task assembleRelease failed with exit code 1

@@ -102,7 +102,7 @@ class AdminApp extends StatelessWidget {
             color: Colors.black87,
           ),
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
@@ -672,8 +672,8 @@ class _StatsPageState extends State<_StatsPage> {
               .map((e) => _TopItem(
                     name: e.key,
                     count: e.value,
-                    total: stats.completedOrders +
-                        stats.pendingOrders,
+                    total: (stats.completedOrders +
+                        stats.pendingOrders).toInt(),
                   )),
           const SizedBox(height: 24),
           Text('الولايات الأكثر نشاطاً',

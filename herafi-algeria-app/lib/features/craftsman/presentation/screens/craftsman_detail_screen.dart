@@ -16,6 +16,9 @@ class CraftsmanDetailScreen extends ConsumerWidget {
   final String? bio;
   final String? priceNote;
   final String phone;
+  final String? photoUrl;
+  final int? experienceYears;
+  final List<String> workPhotos;
 
   const CraftsmanDetailScreen({
     super.key,
@@ -28,6 +31,9 @@ class CraftsmanDetailScreen extends ConsumerWidget {
     this.bio,
     this.priceNote,
     required this.phone,
+    this.photoUrl,
+    this.experienceYears,
+    this.workPhotos = const [],
   });
 
   Future<void> _callPhone() async {
@@ -50,7 +56,7 @@ class CraftsmanDetailScreen extends ConsumerWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          // Header with image placeholder
+          // Header with image
           SliverAppBar(
             expandedHeight: 220,
             pinned: true,
@@ -68,8 +74,13 @@ class CraftsmanDetailScreen extends ConsumerWidget {
                       CircleAvatar(
                         radius: 48,
                         backgroundColor: Colors.white.withOpacity(0.2),
-                        child: const Icon(Icons.person_rounded,
-                            size: 50, color: Colors.white),
+                        backgroundImage: photoUrl != null && photoUrl!.isNotEmpty
+                            ? NetworkImage(photoUrl!)
+                            : null,
+                        child: photoUrl == null || photoUrl!.isEmpty
+                            ? const Icon(Icons.person_rounded,
+                                size: 50, color: Colors.white)
+                            : null,
                       ),
                       const SizedBox(height: 12),
                       Text(
@@ -152,7 +163,9 @@ class CraftsmanDetailScreen extends ConsumerWidget {
                   _InfoTile(
                     icon: Icons.work_history_rounded,
                     title: 'سنوات الخبرة',
-                    value: '8 سنوات',
+                    value: experienceYears != null 
+                        ? '$experienceYears سنوات'
+                        : 'خبرة مهنية',
                   ),
 
                   // Bio
@@ -172,35 +185,53 @@ class CraftsmanDetailScreen extends ConsumerWidget {
                     ),
                   ],
 
-                  // Work photos placeholder
+                  // Work photos
                   const SizedBox(height: 24),
                   Text(
                     'أعمال سابقة',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: 12),
-                  SizedBox(
-                    height: 100,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 4,
-                      separatorBuilder: (_, __) => const SizedBox(width: 10),
-                      itemBuilder: (_, index) {
-                        return Container(
-                          width: 100,
-                          decoration: BoxDecoration(
-                            color: AppColors.surfaceVariant,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Icon(
-                            Icons.image_rounded,
-                            color: AppColors.textTertiary,
-                            size: 32,
-                          ),
-                        );
-                      },
+                  if (workPhotos.isEmpty)
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: AppColors.surfaceVariant.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Column(
+                        children: [
+                          Icon(Icons.image_not_supported_rounded, 
+                            color: AppColors.textTertiary, size: 32),
+                          SizedBox(height: 8),
+                          Text('لا توجد صور أعمال حالياً', 
+                            style: TextStyle(color: AppColors.textTertiary)),
+                        ],
+                      ),
+                    )
+                  else
+                    SizedBox(
+                      height: 120,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: workPhotos.length,
+                        separatorBuilder: (_, __) => const SizedBox(width: 12),
+                        itemBuilder: (_, index) {
+                          return Container(
+                            width: 120,
+                            decoration: BoxDecoration(
+                              color: AppColors.surfaceVariant,
+                              borderRadius: BorderRadius.circular(12),
+                              image: DecorationImage(
+                                image: NetworkImage(workPhotos[index]),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                  ),
 
                   const SizedBox(height: 32),
 

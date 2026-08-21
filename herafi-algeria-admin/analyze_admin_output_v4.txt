@@ -1,0 +1,13 @@
+Analyzing herafi-algeria-admin...                               
+
+   info • Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check • lib/main.dart:221:30 • use_build_context_synchronously
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/main.dart:1037:30 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/main.dart:1038:33 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/main.dart:1224:57 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement • lib/main.dart:1307:43 • deprecated_member_use
+  error • A value of type 'List<dynamic>' can't be returned from the method 'fetchAllUsers' because it has a return type of 'Future<List<Map<String, dynamic>>>' • lib/services/admin_stats_service.dart:104:12 • return_of_invalid_type
+  error • This literal must be either a map or a set, but the elements don't have enough information for type inference to work. Try adding type arguments to the literal (one for sets, two for maps) • lib/services/admin_stats_service.dart:104:35 • ambiguous_set_or_map_literal_either
+  error • A nullable expression can't be used in a spread. Try checking that the value isn't 'null' before using it in a spread, or use a null-aware spread • lib/services/admin_stats_service.dart:104:39 • unchecked_use_of_nullable_value
+  error • The name 'MyApp' isn't a class. Try correcting the name to match an existing class • test/widget_test.dart:16:35 • creation_with_non_type
+
+9 issues found. (ran in 0.8s)
