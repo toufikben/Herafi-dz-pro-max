@@ -7,7 +7,6 @@ import '../../../../models/user_model.dart';
 import '../../../../services/user_service.dart';
 import '../../../search/presentation/screens/search_screen.dart';
 import '../../../craftsman/presentation/screens/craftsman_detail_screen.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -28,12 +27,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Future<void> _load() async {
+    if (!mounted) return;
     setState(() {
       _loading = true;
       _error = null;
     });
     try {
-      final list = await ref.read(userServiceProvider).getFeaturedCraftsmen(limit: 15);
+      final list = await ref.read(userServiceProvider).getFeaturedCraftsmen(limit: 20);
       if (!mounted) return;
       setState(() {
         _featured = list;
@@ -44,85 +44,53 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       setState(() {
         _featured = [];
         _loading = false;
-        _error = AppLocalizations.of(context)?.loadCraftsmenFailed;
+        _error = "تعذر تحميل البيانات";
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-
     return Scaffold(
       backgroundColor: AppColors.darkBackground,
       body: CustomScrollView(
         slivers: [
-          // Custom App Bar with Search
+          // Header
           SliverAppBar(
-            expandedHeight: 180,
+            expandedHeight: 140,
             floating: false,
             pinned: true,
-            backgroundColor: AppColors.darkSurface,
+            backgroundColor: AppColors.darkBackground,
             elevation: 0,
             flexibleSpace: FlexibleSpaceBar(
-              background: Stack(
-                fit: StackFit.expand,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColors.darkSurface,
-                          AppColors.darkBackground,
-                        ],
-                      ),
-                    ),
+              titlePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              title: const Text(
+                'حرفي الجزائر',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
+              ),
+              background: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      AppColors.secondary.withOpacity(0.15),
+                      AppColors.darkBackground,
+                    ],
                   ),
-                  Positioned(
-                    top: 60,
-                    left: 20,
-                    right: 20,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          l10n.appTitle,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        const Text(
-                          'دليل العمال والحرفيين في جميع ولايات الجزائر',
-                          style: TextStyle(
-                            color: Colors.white60,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
-            title: Text(l10n.appTitle, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.account_circle_rounded, color: Colors.white, size: 30),
-                onPressed: () {},
-              ),
-              const SizedBox(width: 8),
-            ],
           ),
 
-          // Search Bar Overlay
+          // Search Bar
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, -30, 16, 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: GestureDetector(
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (_) => const SearchScreen()),
@@ -132,22 +100,25 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   decoration: BoxDecoration(
                     color: AppColors.darkSurface,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Colors.white.withOpacity(0.1)),
+                    border: Border.all(color: Colors.white.withOpacity(0.08)),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
+                        color: Colors.black.withOpacity(0.2),
                         blurRadius: 10,
-                        offset: const Offset(0, 5),
+                        offset: const Offset(0, 4),
                       ),
                     ],
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.search_rounded, color: AppColors.secondary),
+                      const Icon(Icons.search_rounded, color: AppColors.secondary, size: 24),
                       const SizedBox(width: 12),
                       Text(
-                        'ابحث عن اسم، بناء، صباغ، ...',
-                        style: TextStyle(color: Colors.white.withOpacity(0.4), fontSize: 16),
+                        'ابحث عن حرفي أو تخصص...',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.4),
+                          fontSize: 16,
+                        ),
                       ),
                     ],
                   ),
@@ -156,84 +127,100 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
           ),
 
-          // Categories Header
+          // Specialties Horizontal List
           SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              child: Text(
-                'التخصصات',
-                style: TextStyle(
-                  color: AppColors.secondary.withOpacity(0.8),
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20, 20, 20, 15),
+                  child: Text(
+                    'التخصصات',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-              ),
+                SizedBox(
+                  height: 110,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    itemCount: kCraftCategories.length,
+                    itemBuilder: (context, index) {
+                      final cat = kCraftCategories[index];
+                      return GestureDetector(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => SearchScreen(initialCategoryId: cat.id),
+                          ),
+                        ),
+                        child: Container(
+                          width: 85,
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 65,
+                                height: 65,
+                                decoration: BoxDecoration(
+                                  color: AppColors.darkSurface,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: AppColors.secondary.withOpacity(0.2),
+                                    width: 1.5,
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: AppColors.secondary.withOpacity(0.1),
+                                      blurRadius: 8,
+                                      spreadRadius: 1,
+                                    ),
+                                  ],
+                                ),
+                                child: Icon(
+                                  cat.icon,
+                                  color: AppColors.secondary,
+                                  size: 30,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                cat.nameAr,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
 
-          // Categories Grid (Circular)
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 110,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                itemCount: kCraftCategories.length,
-                itemBuilder: (context, index) {
-                  final cat = kCraftCategories[index];
-                  return GestureDetector(
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => SearchScreen(initialCategoryId: cat.id),
-                      ),
-                    ),
-                    child: Container(
-                      width: 80,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(14),
-                            decoration: BoxDecoration(
-                              color: AppColors.darkSurface,
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.white.withOpacity(0.1)),
-                            ),
-                            child: Icon(
-                              cat.icon,
-                              color: AppColors.secondary,
-                              size: 28,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            cat.nameAr,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(color: Colors.white70, fontSize: 12),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-
-          // Featured Craftsmen Header
+          // Featured Craftsmen
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
+              padding: const EdgeInsets.fromLTRB(20, 25, 20, 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'حرفيون مميزون',
                     style: TextStyle(
-                      color: AppColors.secondary.withOpacity(0.8),
-                      fontSize: 20,
+                      color: Colors.white,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -241,44 +228,34 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (_) => const SearchScreen()),
                     ),
-                    child: const Text('عرض الكل', style: TextStyle(color: AppColors.secondary)),
+                    child: const Text(
+                      'عرض الكل',
+                      style: TextStyle(color: AppColors.secondary),
+                    ),
                   ),
                 ],
               ),
             ),
           ),
 
-          // Featured Craftsmen List
           if (_loading)
             const SliverFillRemaining(
               hasScrollBody: false,
               child: Center(child: CircularProgressIndicator(color: AppColors.secondary)),
             )
-          else if (_error != null)
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text('تعذر تحميل الحرفيين', style: TextStyle(color: Colors.white60)),
-                    const SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: _load,
-                      child: const Text('إعادة المحاولة'),
-                    ),
-                  ],
-                ),
-              ),
-            )
           else if (_featured.isEmpty)
             const SliverFillRemaining(
               hasScrollBody: false,
-              child: Center(child: Text('لا يوجد حرفيون حالياً', style: TextStyle(color: Colors.white60))),
+              child: Center(
+                child: Text(
+                  'لا يوجد حرفيون حالياً',
+                  style: TextStyle(color: Colors.white38),
+                ),
+              ),
             )
           else
             SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
@@ -294,7 +271,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               ),
             ),
           
-          const SliverToBoxAdapter(child: SizedBox(height: 80)),
+          const SliverToBoxAdapter(child: SizedBox(height: 100)),
         ],
       ),
     );

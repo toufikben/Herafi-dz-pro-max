@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../theme/app_colors.dart';
 import '../../models/user_model.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CraftsmanCard extends StatelessWidget {
   final UserModel user;
@@ -26,10 +25,9 @@ class CraftsmanCard extends StatelessWidget {
 
   Future<void> _openWhatsApp() async {
     if (user.phone == null) return;
-    // Remove leading + or 00 for WhatsApp link
     String cleanPhone = user.phone!.replaceAll(RegExp(r'[^\d]'), '');
     if (cleanPhone.startsWith('213')) {
-      // Keep as is
+      // Already has country code
     } else if (cleanPhone.startsWith('0')) {
       cleanPhone = '213${cleanPhone.substring(1)}';
     } else {
@@ -44,8 +42,6 @@ class CraftsmanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -53,12 +49,15 @@ class CraftsmanCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.darkSurface,
           borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: Colors.white.withOpacity(0.08)),
+          border: Border.all(
+            color: AppColors.secondary.withOpacity(0.15),
+            width: 1,
+          ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              blurRadius: 15,
-              offset: const Offset(0, 8),
+              color: AppColors.secondary.withOpacity(0.05),
+              blurRadius: 20,
+              spreadRadius: 2,
             ),
           ],
         ),
@@ -66,16 +65,17 @@ class CraftsmanCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
           child: Stack(
             children: [
-              // Neon glow effect at the top right
+              // Neon gradient accent
               Positioned(
-                top: -20,
-                right: -20,
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 4,
                 child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.secondary.withOpacity(0.05),
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [AppColors.secondary, Colors.transparent],
+                    ),
                   ),
                 ),
               ),
@@ -85,29 +85,37 @@ class CraftsmanCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Header: Avatar, Name, Specialty, Rating
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Avatar with Glow
+                        // Avatar with Neon Glow
                         Container(
                           padding: const EdgeInsets.all(2),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: Border.all(color: AppColors.secondary.withOpacity(0.3), width: 2),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.secondary.withOpacity(0.2),
+                                blurRadius: 10,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                            border: Border.all(
+                              color: AppColors.secondary.withOpacity(0.5),
+                              width: 2,
+                            ),
                           ),
                           child: CircleAvatar(
-                            radius: 34,
+                            radius: 32,
                             backgroundColor: AppColors.darkBackground,
                             backgroundImage: user.photoUrl != null ? NetworkImage(user.photoUrl!) : null,
                             child: user.photoUrl == null
-                                ? const Icon(Icons.person_rounded, color: AppColors.secondary, size: 36)
+                                ? const Icon(Icons.person_rounded, color: AppColors.secondary, size: 32)
                                 : null,
                           ),
                         ),
                         const SizedBox(width: 16),
                         
-                        // Name and Specialty
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,26 +134,24 @@ class CraftsmanCard extends StatelessWidget {
                                   ),
                                   if (user.isVerified)
                                     const Icon(Icons.verified_rounded, size: 18, color: Colors.blueAccent),
-                                  const SizedBox(width: 8),
-                                  const Icon(Icons.star_border_rounded, color: Colors.white38, size: 24),
                                 ],
                               ),
-                              const SizedBox(height: 6),
+                              const SizedBox(height: 4),
+                              Text(
+                                specialty,
+                                style: const TextStyle(
+                                  color: AppColors.secondary,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
                               Row(
                                 children: [
-                                  Text(
-                                    specialty,
-                                    style: const TextStyle(
-                                      color: AppColors.secondary,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  const Text(' / ', style: TextStyle(color: Colors.white24)),
-                                  Icon(Icons.location_on_rounded, color: Colors.white38, size: 14),
+                                  const Icon(Icons.location_on_rounded, color: Colors.white38, size: 14),
                                   const SizedBox(width: 4),
                                   Text(
-                                    '${user.wilaya ?? ''} - الجزائر',
+                                    '${user.wilaya ?? ''} - ${user.commune ?? ''}',
                                     style: const TextStyle(color: Colors.white54, fontSize: 13),
                                   ),
                                 ],
@@ -156,60 +162,35 @@ class CraftsmanCard extends StatelessWidget {
                       ],
                     ),
                     
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 16),
                     
-                    // Stats Row: Rating Box
+                    // Rating & Experience Box
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.03),
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(color: Colors.white.withOpacity(0.05)),
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '${user.rating.toStringAsFixed(1)} / 10 - ممتاز جداً',
-                                style: const TextStyle(
-                                  color: AppColors.secondary,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              const SizedBox(height: 2),
-                              Text(
-                                '(${user.ratingCount} تقييم) • ${user.yearsOfExperience ?? 0} سنوات خبرة',
-                                style: const TextStyle(color: Colors.white38, fontSize: 12),
-                              ),
-                            ],
+                          _buildStatItem(
+                            icon: Icons.star_rounded,
+                            value: user.rating.toStringAsFixed(1),
+                            label: '${user.ratingCount} تقييم',
+                            color: Colors.orangeAccent,
                           ),
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                            decoration: BoxDecoration(
-                              color: AppColors.secondary,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.secondary.withOpacity(0.3),
-                                  blurRadius: 8,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              children: [
-                                Text(
-                                  user.rating.toStringAsFixed(1),
-                                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-                                ),
-                                const SizedBox(width: 4),
-                                const Icon(Icons.star_rounded, color: Colors.white, size: 18),
-                              ],
-                            ),
+                            height: 30,
+                            width: 1,
+                            color: Colors.white10,
+                            margin: const EdgeInsets.symmetric(horizontal: 16),
+                          ),
+                          _buildStatItem(
+                            icon: Icons.work_history_rounded,
+                            value: '${user.yearsOfExperience ?? 0}',
+                            label: 'سنوات خبرة',
+                            color: AppColors.secondary,
                           ),
                         ],
                       ),
@@ -217,69 +198,24 @@ class CraftsmanCard extends StatelessWidget {
                     
                     const SizedBox(height: 16),
                     
-                    // Bio/Description
-                    if (user.bio != null && user.bio!.isNotEmpty)
-                      Text(
-                        user.bio!,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.6),
-                          fontSize: 14,
-                          height: 1.5,
-                        ),
-                      ),
-                    
-                    const SizedBox(height: 20),
-                    
-                    // Action Buttons
+                    // Direct Contact Buttons
                     Row(
                       children: [
-                        // Call Button
                         Expanded(
-                          flex: 2,
-                          child: ElevatedButton.icon(
+                          child: _buildContactButton(
                             onPressed: _makeCall,
-                            icon: const Icon(Icons.phone_rounded, size: 20),
-                            label: const Text('اتصال...', style: TextStyle(fontWeight: FontWeight.bold)),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF2962FF),
-                              foregroundColor: Colors.white,
-                              elevation: 0,
-                              padding: const EdgeInsets.symmetric(vertical: 14),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-                            ),
+                            icon: Icons.phone_in_talk_rounded,
+                            label: 'اتصال',
+                            color: const Color(0xFF2962FF),
                           ),
                         ),
                         const SizedBox(width: 12),
-                        // WhatsApp Button
                         Expanded(
-                          flex: 2,
-                          child: ElevatedButton.icon(
+                          child: _buildContactButton(
                             onPressed: _openWhatsApp,
-                            icon: const Icon(Icons.chat_bubble_rounded, size: 20),
-                            label: const Text('واتساب', style: TextStyle(fontWeight: FontWeight.bold)),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF00C853),
-                              foregroundColor: Colors.white,
-                              elevation: 0,
-                              padding: const EdgeInsets.symmetric(vertical: 14),
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        // Rate Button
-                        Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.secondary.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(14),
-                            border: Border.all(color: AppColors.secondary.withOpacity(0.3)),
-                          ),
-                          child: IconButton(
-                            onPressed: () {}, // Rate action
-                            icon: const Icon(Icons.star_rounded, color: AppColors.secondary),
-                            padding: const EdgeInsets.all(12),
+                            icon: Icons.chat_bubble_rounded,
+                            label: 'واتساب',
+                            color: const Color(0xFF00C853),
                           ),
                         ),
                       ],
@@ -289,6 +225,77 @@ class CraftsmanCard extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStatItem({
+    required IconData icon,
+    required String value,
+    required String label,
+    required Color color,
+  }) {
+    return Expanded(
+      child: Row(
+        children: [
+          Icon(icon, color: color, size: 20),
+          const SizedBox(width: 8),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                value,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              Text(
+                label,
+                style: const TextStyle(color: Colors.white38, fontSize: 11),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildContactButton({
+    required VoidCallback onPressed,
+    required IconData icon,
+    required String label,
+    required Color color,
+  }) {
+    return Container(
+      height: 48,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: color.withOpacity(0.2),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: ElevatedButton.icon(
+        onPressed: onPressed,
+        icon: Icon(icon, size: 18),
+        label: Text(
+          label,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+          ),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          foregroundColor: Colors.white,
+          elevation: 0,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         ),
       ),
     );
